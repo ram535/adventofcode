@@ -1,3 +1,5 @@
+.*
+!/.gitignore
 day02/cpp/a.out
 advent2016/
 day02
