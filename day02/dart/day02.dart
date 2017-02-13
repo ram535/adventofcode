@@ -4,6 +4,7 @@ void main() {
   List<String> board = ["     ", " 123 ", " 456 ", " 789 ", "     "];
   int rowCoordinate = 1;
   int columnCoordinate = 1;
+  // open the file and put each line of the file in a list of strings
   List<String> lines = new File('../input.dat').readAsLinesSync();
   String code = "";
 
