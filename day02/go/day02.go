@@ -19,12 +19,14 @@ func main() {
 	// Loop over all lines in the file and print them.
 	for scanner.Scan() {
 		line := scanner.Text()
-		for i := 0; i < len(line); i++ {
-			direction := (string(line[i]))
+		for _, direction := range line {
+			// for i := 0; i < len(line); i++ {
+			// direction := (string(line[i]))
 			dr := 0
 			dc := 0
 
-			switch direction {
+			// direction is in UNICODE value so I have to decode with string()
+			switch string(direction) {
 			case "U":
 				dr = -1
 			case "D":

@@ -1,4 +1,3 @@
-// Part 1
 #include <cstdio>
 // this library allows to read and write from files
 #include <fstream>
@@ -7,17 +6,16 @@
 using namespace std;
 
 int main() {
-    string board[] = {"     ", " 123 ", " 456 ", " 789 ", "     "};
+    string board[] = {"     ",   "   1   ", "  234  ", " 56789 ",
+                      "  ABC  ", "   D   ", "       "};
+
     string line;
-    // this is the starting position (Button 1)
-    int rowCoordinate = 1;
+    // this is the starting position (Button 5)
+    int rowCoordinate = 3;
     int columnCoordinate = 1;
 
-    // ifstream theData;
-    // theData.open("../input.dat");
     // we associate the file inpu.dat we the object theData
     // we are also open it
-    // this the same as the code above in line 12 and 13
     ifstream theData("../input.dat");
 
     // checking if the file input.dat was opened succefully
@@ -32,7 +30,7 @@ int main() {
             char code;
             // looping each line to get the code of each line
             // for (int i = 0; i < line.length(); i++) {
-            //     char direction = line[i];
+            // char direction = line[i];
             for (auto direction : line) {
                 int dr = 0;
                 int dc = 0;
