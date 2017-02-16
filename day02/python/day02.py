@@ -8,10 +8,10 @@ def main():
     col_coord = 1
     code = ""
 
-    # open the file in read mode
+# open the file in read mode
     the_data = open("../input.dat", "r")
 
-    # loop one line at a time
+# loop one line at a time
     for line in the_data.readlines():
         j = 0
         while j < len(line):
