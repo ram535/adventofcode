@@ -28,8 +28,7 @@ string getData() {
 }
 
 int main() {
-    string data = getData();
-    stringstream linestream(data);
+    stringstream data(getData());
     int direction = 0;
     string letter;
     int steps;
@@ -37,27 +36,30 @@ int main() {
     int totalSteps = 0;
 
     // get each individual instruction one bye one removing the comma
-    while (getline(linestream, letter, ',')) {
+    while (getline(data, letter, ',')) {
         if (letter[0] == 'R') {
-            // erase the first member of the string
-            letter.erase(letter.begin() + 0);
-            // convert the rest of the string to int
-            steps = stoi(letter);
             direction--;
         } else {
-            letter.erase(letter.begin() + 0);
-            steps = stoi(letter);
             direction++;
         }
+        // keeps the range of direction form -3,-2,-1,0,1,2,3
+        // to use them as index for the array directions[]
         direction %= 4;
 
+        // transforms the negative values to positive so it is can be used as a
+        // valid index for the array directions[]
         if (direction < 0) {
             direction += 4;
         }
+        // erase the first member of the string
+        letter.erase(letter.begin() + 0);
+        // convert the rest of the string to int
+        steps = stoi(letter);
+
         directions[direction] += steps;
     }
     totalSteps =
         abs(directions[0] - directions[2]) + abs(directions[1] - directions[3]);
 
-    printf("%d", totalSteps);
+    printf("%d\n", totalSteps);
 }
