@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-
 	// this return the data of the file as a slice of intergers
 	// so I have to use string() method to decode the unicode
 	// dat, _ := ioutil.ReadFile("../input.dat")
@@ -26,15 +25,14 @@ func main() {
 	line := scanner.Text()
 
 	// Split the line on commas and space.
-	parts := strings.Split(line, ", ")
+	instructions := strings.Split(line, ", ")
 
 	direction := 0
 	directions := [...]int{0, 0, 0, 0}
 
-	// Loop over the parts from the string.
-	for i := range parts {
-
-		if parts[i][0] == 'R' {
+	// Loop over the instructions from the string.
+	for i := range instructions {
+		if instructions[i][0] == 'R' {
 			direction--
 		} else {
 			direction++
@@ -48,15 +46,14 @@ func main() {
 		if direction < 0 {
 			direction += 4
 		}
-		// fmt.Println(parts[i][1:])
 
 		// convert the rest of the string to int
-		step, _ := strconv.Atoi(parts[i][1:])
+		step, _ := strconv.Atoi(instructions[i][1:])
 
 		directions[direction] += step
 	}
 
-	// to the method math.Abs in golang only works wit float numbers
+	// the method math.Abs in golang only works wit float numbers
 	totalSteps := math.Abs(float64(directions[0]-directions[2])) + math.Abs(float64(directions[1]-directions[3]))
 	fmt.Println(totalSteps)
 }
