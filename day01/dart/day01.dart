@@ -6,12 +6,13 @@ void main() {
   List<String> instructions = data.split(', ');
   int compass = 0;
 
-  // steps of each direction (north, east, west, south)
+  // steps on each direction (north, east, west, south)
   List<int> directionSteps = [0, 0, 0, 0];
   int totalSteps = 0;
 
   for (String instruction in instructions) {
-    if (instruction.substring(0, 1) == 'R') {
+    // if (instruction.substring(0, 1) == 'R') {
+    if (instruction[0] == 'R') {
       compass--;
     } else {
       compass++;
