@@ -32,6 +32,7 @@ def get_distance(data):
                 distance = abs(location[0]) + abs(location[1])
                 return distance
             memorize_location.add(location)
+            print(location)
 
     return "Error"
 
