@@ -15,8 +15,7 @@ int getDistance(String data) {
 
   // initial location
   List<int> location = [0, 0];
-  var memorizeX = new List();
-  var memorizeY = new List();
+  var memorizeLocation = new List();
 
   List<int> factor = [0, 1, 0, -1];
   List<int> factor2 = [1, 0, -1, 0];
@@ -44,12 +43,17 @@ int getDistance(String data) {
       int y = location[1] + factor2[compass];
       location[0] = x;
       location[1] = y;
-      print(location);
+      List<int> currentLocation = new List<int>.from(location);
 
-      memorizeX.add(x);
-      memorizeY.add(y);
+      for (var i = 0; i < memorizeLocation.length; i++) {
+        if ((memorizeLocation[i][0] == currentLocation[0]) &&
+            (memorizeLocation[i][1] == currentLocation[1])) {
+          distance = (currentLocation[0]).abs() + (currentLocation[1]).abs();
+          return distance;
+        }
+      }
+      memorizeLocation.add(currentLocation);
     }
   }
-
   return distance;
 }

@@ -43,8 +43,8 @@ func getDistance(instructions []string) float64 {
 
 		for i := 0; i < blocks; i++ {
 			currentLocation := []int{0, 0}
-			location[0] = location[0] + factor[compass][0]
-			location[1] = location[1] + factor[compass][1]
+			location[0] += factor[compass][0]
+			location[1] += factor[compass][1]
 			copy(currentLocation, location)
 
 			for _, check := range memorizeLocation {
