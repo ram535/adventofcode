@@ -46,6 +46,7 @@ func getDistance(instructions []string) float64 {
 			location[0] += factor[compass][0]
 			location[1] += factor[compass][1]
 			copy(currentLocation, location)
+			fmt.Println(currentLocation)
 
 			for _, check := range memorizeLocation {
 				if reflect.DeepEqual(check, currentLocation) {
