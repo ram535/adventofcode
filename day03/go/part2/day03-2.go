@@ -8,6 +8,12 @@ import (
 	"strings"
 )
 
+func main() {
+	dimensions := getData()
+	possibles := getPossibles(dimensions)
+	fmt.Println(possibles)
+}
+
 // arrange the data and returns an array[][] with all the dimensions
 func getData() [][3]int {
 	file, _ := os.Open("../../input.txt")
@@ -15,7 +21,7 @@ func getData() [][3]int {
 
 	dimensions := [][3]int{}
 	for scanner.Scan() {
-		// Fields splits the string s around each instance of one or more consecutive white space characters
+		// Fields splits the string around each instance of one or more consecutive white space characters
 		// returning an array of substrings
 		data := strings.Fields(scanner.Text())
 
@@ -32,22 +38,27 @@ func getData() [][3]int {
 }
 
 func getPossibles(dimensions [][3]int) int {
-	possibles := 0
-	for _, dimension := range dimensions {
-		a := dimension[0]
-		b := dimension[1]
-		c := dimension[2]
+	var possibles int
+	var triangles [3][3]int
+	var j int
+	for i, dimension := range dimensions {
+		triangles[0][j] = dimension[0]
+		triangles[1][j] = dimension[1]
+		triangles[2][j] = dimension[2]
+		j++
+		if j > 2 {
+			j = 0
+			fmt.Println(i)
+			for _, triangle := range triangles {
+				a := triangle[0]
+				b := triangle[1]
+				c := triangle[2]
 
-		if a+b > c && a+c > b && b+c > a {
-			possibles++
+				if a+b > c && a+c > b && b+c > a {
+					possibles++
+				}
+			}
 		}
 	}
 	return possibles
-}
-
-func main() {
-	dimensions := getData()
-	possibles := getPossibles(dimensions)
-	fmt.Println(possibles)
-
 }

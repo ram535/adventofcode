@@ -47,5 +47,4 @@ func main() {
 	}
 	fmt.Println(code)
 	fmt.Println(reflect.TypeOf(scanner).Kind())
-	fmt.Println(reflect.TypeOf(scanner))
 }

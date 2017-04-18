@@ -33,5 +33,6 @@ void main() {
   totalSteps += (directionSteps[0] - directionSteps[2]).abs() +
       (directionSteps[1] - directionSteps[3]).abs();
 
+  print("algo");
   print(totalSteps);
 }

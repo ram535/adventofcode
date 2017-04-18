@@ -8,14 +8,14 @@ try {
 
 let sides = [];
 let dimension = data.trim().split('\n');
-for(let i=0; i< dimension.length;i++){
+for (let i = 0; i < dimension.length; i++) {
     dimension[i].trim();
-    let temp = dimension[i].replace(/(^\s+|\s+$)/g,'');
+    let temp = dimension[i].replace(/(^\s+|\s+$)/g, '');
 
     sides.push(temp.replace(/\s+/g, ',').split(','));
 }
 
-  let total = 0;
+let total = 0;
 for (let side of sides) {
     // sides of the triangle
     let a = parseInt(side[0]);
@@ -23,7 +23,7 @@ for (let side of sides) {
     let c = parseInt(side[2]);
 
     if (a + b > c && a + c > b && b + c > a) {
-      total++;
+        total++;
     }
 }
 console.log(total);
